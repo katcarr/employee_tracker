@@ -1,20 +1,20 @@
 <h1>Welcome to Employee Tracker</h1>
-<h3>Enter an employee below</h3>
-<form action = "/employee" method = "post">
+<h3>Enter a division below</h3>
+<form action = "/division" method = "post">
   <div class ="form-group">
     <label for = "name">Employee name</label>
     <input id= "name" name = "name" class "form-control" type = "text">
   </div>
 </form>
 
-<% if @employees.any?() %>
+<% if @divisions.any?() %>
   <ul>
-    <% @employees.each() do |employee| %>
-    <li><a href="/employee/<%= employee.id() %>"><%= employee.name() %></a></li>
+    <% @divisions.each() do |division| %>
+    <li><a href="/division/<%= division.id() %>"><%= division.name() %></a></li>
     <% end %>
   </ul>
 
 <% else%>
-  <h4>No Employees Yet</h4>
+  <h4>No Divisions Yet</h4>
 
 <%end%>
