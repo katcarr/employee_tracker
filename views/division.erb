@@ -1,0 +1,21 @@
+<h1> Add an employee to <%= @found_division.name() %> </h1>
+
+
+<form action = "/division/added_employee" method ="post">
+  <input id="division_id" name ="division_id"  type="hidden" value = "<%= @found_division.id() %>" >
+  <div class= "form-group">
+    <label for = "name" >Employee Name</label>
+    <input name = "name" id = "name"  class="form-control" type = "text">
+  </div>
+</form>
+
+<% if @employees.any?() %>
+<p>Here are all employees for this division:</p>
+  <% @employees.each do |employee| %>
+    <ul>
+      <li><%= employee.name() %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <h4>Currently there are no employees in this divsion <%= @division_id %></h4>
+<% end %>
