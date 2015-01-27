@@ -34,7 +34,7 @@
     <% end %>
 
     <form action="/division/delete" method = "post">
-       <input name="_method" type="hidden" value="delete">
+      <input name="_method" type="hidden" value="delete">
       <label for "division_id">Select a division </label>
       <select id ="division_id" name = "division_id" type ="text">
         <% @divisions.each() do |division| %>
