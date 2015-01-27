@@ -44,3 +44,13 @@ post("/division/added_employee") do
   @division_employees = []
   erb(:index)
 end
+
+delete("/division/delete") do
+  division_id = (params.fetch("division_id").to_i())
+  @found_division = Division.find(division_id)
+  @found_division.destroy
+  @employees = Employee.all()
+  @divisions = Division.all()
+  @division_employees =[]
+  erb(:index)
+end
