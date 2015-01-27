@@ -10,6 +10,29 @@
       </div>
       <button type ="submit">Add division</button>
     </form>
+
+
+    <h3>Choose a Division to See Employees</h3>
+    <form action="/list_division_employees" method="post">
+      <label for="division_id">Select a Division</label>
+      <select id="division_id" name = "division_id" type="text">
+          <% @divisions.each() do |division| %>
+            <option value="<%= division.id()%>"> <%= division.name() %> </option>
+          <% end %>
+      </select>
+      <button type ="submit">See a division</button>
+    </form>
+
+    <% if @division_employees.any?() %>
+      <% @division_employees.each do |employee| %>
+        <ul>
+          <li><%= employee.name() %></li>
+        </ul>
+      <% end %>
+    <% else %>
+      <h4>Currently there are no employees</h4>
+    <% end %>
+
   </div>
 
   <div class = "col-xs-6 col-md-4">
@@ -20,7 +43,7 @@
     <form action = "/division/added_employee" method ="post">
 
         <label for = "division_id">Select a Division</label>
-        <select id = "division_id" name ="division_id" type ="text"
+        <select id = "division_id" name ="division_id" type ="text">
           <% @divisions.each() do |division| %>
             <option value ="<%= division.id()%>"> <%= division.name() %> </option>
           <% end %>
